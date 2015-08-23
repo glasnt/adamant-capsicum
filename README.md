@@ -2,9 +2,9 @@
 
 # Tool Chain
 
- * Make a markdown file, e.g. `README.md`
+ * Make a markdown file, e.g. `myslides.md`
  * Use these fancy shortcuts to extend the default functionality of the markdown format
- * run `ruby preparse.rb README.md > slides.md`
+ * run `ruby preparse.rb myslides.md > slides.md`
  * require the `slides.md` in your `reveal.js` `index.html` file
 
 ## Tips
