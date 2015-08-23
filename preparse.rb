@@ -32,8 +32,9 @@ file.each do |line|
     type.gsub!("=","")
   end
 
+  # h0
   if ["!#","!#="].include? type then
-    append += " <!-- .element class=\"h0\" --> "
+    append += " <!-- .element style=\"font-size: 4em\" --> "
     type.gsub!("!","")
   end
 
