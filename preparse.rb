@@ -5,6 +5,8 @@ end
 
 file = File.open(ARGV[0]).read.split("\n")
 
+output = ARGV[1] if ARGV.length > 1
+
 result = []
 
 file.each do |line|
@@ -39,7 +41,10 @@ file.each do |line|
   result << r
 end
 
-
-
-puts result.join("\n")
+if output
+  File.open(output, "w") { |f| f.write result.join("\n") }
+  puts "Outputted parsed markdown to #{output}"
+else 
+  puts result.join("\n")
+end
 
