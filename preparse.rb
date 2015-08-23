@@ -18,15 +18,18 @@ file.each do |line|
   end
   content = line.split(" ")[1..-1].join(" ")
 
+  # Fragment
   if type.include? "-" then
     append = " <!-- .element: class=\"fragment\" -->"
     type.gsub!("-","")
   end
 
+  # h1 defaulting to top with padding
   if type == "#" then
     append = " <!-- .element: style=\"margin-bottom: 1em\" -->"
   end
   
+  # Center
   if type.include? "=" then
     append = " <!-- .slide: class=\"center\" -->"
     type.gsub!("=","")
