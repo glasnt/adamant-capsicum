@@ -39,7 +39,7 @@ Useful in combination with `center`.
 * `index.html` - sample reveal.js index.html. [Use the most up to date library files](https://github.com/hakimel/reveal.js)
  * includes my defaults for making reveal not look like reveal (removing in screen navigation, etc)
 * `theme_extensions.css` - customisations for themes, including `h0`
-* `input.md` and `output.md` - sample input, and the automatically generated output
+* [`input.md`](https://raw.githubusercontent.com/glasnt/adamant-capsicum/master/sample_input.md) and [`output.md`](https://raw.githubusercontent.com/glasnt/adamant-capsicum/master/sample_ouput.md) - sample input, and the automatically generated output
 
 # Usefulness
 
