@@ -12,10 +12,11 @@ result = []
 file.each do |line|
   append = ""
   type = line.split(" ").first
-  if line.length == 0
+  if line.strip.length == 0
     result << ""
     next
   end
+
   content = line.split(" ")[1..-1].join(" ")
 
   # Fragment
