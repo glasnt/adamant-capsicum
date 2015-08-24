@@ -19,6 +19,12 @@ file.each do |line|
 
   content = line.split(" ")[1..-1].join(" ")
 
+  # Shortcut for images. Assumes assets live in pictures/
+  if type == "@" then
+    content = "<img src=\"pictures/#{content}\" />"
+    type.gsub!("@","")
+  end
+
   # Ignore generic line separators
   if type == "---" then
     result << type
