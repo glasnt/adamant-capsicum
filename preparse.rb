@@ -19,6 +19,12 @@ file.each do |line|
 
   content = line.split(" ")[1..-1].join(" ")
 
+  # Ignore generic line separators
+  if type == "---" then
+    result << type
+    next
+  end
+
   # Fragment
   if type.include? "-" then
     append = " <!-- .element: class=\"fragment\" -->"
