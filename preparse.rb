@@ -39,7 +39,7 @@ file.each do |line|
   end
 
   # Fragment
-  if type.include? "-" then
+  if type.end_with? "-" then
     append = " <!-- .element: class=\"fragment\" -->"
     type.gsub!("-","")
   end
