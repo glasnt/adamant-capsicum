@@ -19,6 +19,13 @@ file.each do |line|
 
   content = line.split(" ")[1..-1].join(" ")
 
+  # Image as the main attraction
+  if type == "@^" then
+    content = "<img src=\"pictures/#{content}\" style=\"margin-top: -50px\" />"
+    type = ""
+  end
+  
+
   # Shortcut for images. Assumes assets live in pictures/
   if type == "@" then
     content = "<img src=\"pictures/#{content}\" />"
