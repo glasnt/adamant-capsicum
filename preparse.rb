@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 if ARGV.length == 0 then
   puts "requires an input file"
   exit 1
