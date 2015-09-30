@@ -25,6 +25,12 @@ file.each do |line|
     content = "<img src=\"pictures/#{content}\" style=\"margin-top: -50px\" />"
     type = ""
   end
+
+  # Nice Code
+  if type.include? "#>" then
+    content = "<div style='margin-bottom:0px; font-size: 80px'><pre style='margin-bottom:0px;margin-top:0px'><code style=\"font: 'monospace' 150%\">#{content}</code></pre></div>"
+    type.gsub!("#>","")
+  end
   
 
   # Shortcut for images. Assumes assets live in pictures/
@@ -56,6 +62,8 @@ file.each do |line|
     type.gsub!("=","")
   end
 
+
+  
   # h0
   if ["!#","!#="].include? type then
     append += " <!-- .element style=\"font-size: 4em\" --> "
