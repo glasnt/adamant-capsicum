@@ -40,9 +40,18 @@ file.each do |line|
   end
 
   if type == '!' then
-    content = "<div style='width: 50%; margin: 0 auto;'><p align='center'><img height='400px' src='pictures/#{content}.svg'></p></div>"
     append = " <!-- .slide: class=\"center\" -->"
     type.gsub!("!","")
+    if content.include? "|" then
+	    c = "<div style='width: 50%; margin: 0 auto;'><p align='center'>"
+	    content.split("|").each do |s|
+		    c += "<img height='200px' src='pictures/#{s.strip!}.svg'>"
+            end
+            c += "</p></div>"
+            content = c
+    else 
+	    content = "<div style='width: 50%; margin: 0 auto;'><p align='center'><img height='400px' src='pictures/#{content}.svg'></p></div>"
+    end
   end
 
   # Ignore generic line separators
