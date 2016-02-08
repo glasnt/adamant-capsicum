@@ -39,6 +39,12 @@ file.each do |line|
     type.gsub!("@","")
   end
 
+  if type == '!' then
+    content = "<div style='width: 50%; margin: 0 auto;'><p align='center'><img height='400px' src='pictures/#{content}.svg'></p></div>"
+    append = " <!-- .slide: class=\"center\" -->"
+    type.gsub!("!","")
+  end
+
   # Ignore generic line separators
   if type == "---" then
     result << type
@@ -51,11 +57,6 @@ file.each do |line|
     type.gsub!("-","")
   end
 
-  # h1 defaulting to top with padding
-  if type == "#" then
-    append = " <!-- .element: style=\"margin-bottom: 1em\" -->"
-  end
-  
   # Center
   if type.include? "=" then
     append = " <!-- .slide: class=\"center\" -->"
