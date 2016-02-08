@@ -43,9 +43,11 @@ file.each do |line|
     append = " <!-- .slide: class=\"center\" -->"
     type.gsub!("!","")
     if content.include? "|" then
-	    c = "<div style='width: 50%; margin: 0 auto;'><p align='center'>"
+	    c = "<div style='width: 100%; margin: 0 auto;'><p align='center'>"
+	    l = content.split("|").length
+	    a = 800 / l
 	    content.split("|").each do |s|
-		    c += "<img height='200px' src='pictures/#{s.strip!}.svg'>"
+		    c += "<img height='#{a}px' src='pictures/#{s.strip!}.svg'>"
             end
             c += "</p></div>"
             content = c
