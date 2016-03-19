@@ -47,7 +47,8 @@ file.each do |line|
 	    l = content.split("|").length
 	    a = 800 / l
 	    content.split("|").each do |s|
-		    c += "<img height='#{a}px' src='pictures/#{s.strip!}.svg'>"
+	      t = ( s.include? "png") ? s.strip! : "#{s.strip!}.svg"
+	      c += "<img height='#{a}px' src='pictures/#{t}'>"
             end
             c += "</p></div>"
             content = c
