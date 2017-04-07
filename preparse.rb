@@ -26,6 +26,14 @@ file.each do |line|
     type = ""
   end
 
+  # Image in the center
+  if type == "@=" then
+
+    append = " <!-- .slide: class=\"center\" -->"
+	content = "<div style='margin: 0 auto;'><p align='center'><img src='pictures/#{content}'></p></div> "
+    type = ""
+  end
+
   # Nice Code
   if type.include? "#>" then
     content = "<div style='margin-bottom:0px; font-size: 80px'><pre style='margin-bottom:0px;margin-top:0px'><code style=\"font: 'monospace' 150%\">#{content}</code></pre></div>"
