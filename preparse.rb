@@ -93,7 +93,8 @@ file.each do |line|
   
   # h0
   if ["!#","!#="].include? type then
-    append += " <!-- .element style=\"font-size: 4em\" --> "
+    append += " <!-- .slide: class=\"center\" -->"
+    append += " <!-- .element style=\"font-size: 3em\" --> "
     type.gsub!("!","")
   end
 
