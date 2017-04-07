@@ -65,6 +65,12 @@ file.each do |line|
     end
   end
 
+  # dasfoot
+  if type == "vv" then
+	content = "<span class='foot'>#{content}</span>"
+    type.gsub!("vv","")
+  end
+
   # Ignore generic line separators
   if type == "---" then
     result << type
