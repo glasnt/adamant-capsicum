@@ -47,6 +47,18 @@ file.each do |line|
     type.gsub!("@","")
   end
 
+  if type == "~@" then
+    append = "<!-- .slide: data-background-image=\"pictures/#{content}\"-->"
+    content = ""
+    type = ""
+  end
+
+  if type == '~~~' then
+    append = "<!-- .slide: data-background=\"#000\"-->"
+    content = ""
+    type = ""
+  end
+
   if type == '!' then
     append = " <!-- .slide: class=\"center\" -->"
     type.gsub!("!","")
@@ -66,6 +78,10 @@ file.each do |line|
   end
 
   # dasfoot
+  if type == "vv=" then
+	content = "<span class='cfoot'>#{content}</span>"
+    type.gsub!("vv=","")
+  end
   if type == "vv" then
 	content = "<span class='foot'>#{content}</span>"
     type.gsub!("vv","")
