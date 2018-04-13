@@ -20,9 +20,37 @@ file.each do |line|
 
   content = line.split(" ")[1..-1].join(" ")
 
+  ### Vector Terminal
+  ### requires Vector CSS Terminal Window CSS
+  if type == "$$terminal" then ## top bar
+    content = "<div class=\"shell-wrap\"><p class=\"shell-top-bar\">#{content}</p><p class=\"shell-body\">"
+    type = ""
+  end
+   
+  if type == "$$prompt" then # myrtle prefix
+    content = "<ps>myrtle</ps> <dr>#{content} $</dr> "
+    type = ""
+  end
+  if type == "$$w" then # Whitespace ending
+    content = "#{content}<w>&nbsp;</w>"
+    type = ""
+  end
+
+  if type == "$$end" then
+    content = "</p></p></div>"
+    type = ""
+  end
+
+
   # Image as the main attraction
   if type == "@^" then
     content = "<img src=\"pictures/#{content}\" style=\"margin-top: -50px\" />"
+    type = ""
+  end
+
+  # Image as the main attraction, as big as you can, please
+  if type == "@^^" then
+    content = "<img src=\"pictures/#{content}\" style=\"margin-top: -50px; height: 700px;\" />"
     type = ""
   end
 
@@ -36,10 +64,9 @@ file.each do |line|
 
   # Nice Code
   if type.include? "#>" then
-    content = "<div style='margin-bottom:0px; font-size: 80px'><pre style='margin-bottom:0px;margin-top:0px'><code style=\"font: 'monospace' 150%\">#{content}</code></pre></div>"
+    content = "<pre><code>#{content}</code></pre>"
     type.gsub!("#>","")
   end
-  
 
   # Shortcut for images. Assumes assets live in pictures/
   if type == "@" then
