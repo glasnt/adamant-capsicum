@@ -31,8 +31,26 @@ file.each do |line|
     content = "<ps>myrtle</ps> <dr>#{content} $</dr> "
     type = ""
   end
+
+  if type == "$$py" then # Python Prompt
+    content = "&gt;&gt;&gt; #{content}<br>"
+    type = ""
+  end
+
   if type == "$$w" then # Whitespace ending
     content = "#{content}<w>&nbsp;</w>"
+    type = ""
+  end
+  if type == "$$pyw" then # both Python Prompt and Whitespace ending
+    content = "&gt;&gt;&gt; #{content}<w>&nbsp;</w>"
+    type = ""
+  end
+  if type == "$$pd" then # Python dot dot dot 
+    content = "... #{content}<br>"
+    type = ""
+  end
+  if type == "$$pdw" then # both Python dot dot dot and Whitespace ending
+    content = "... #{content}<w>&nbsp;</w><br>"
     type = ""
   end
 
@@ -96,9 +114,9 @@ file.each do |line|
 	    content.split("|").each do |s|
 	      t = ( s.include? "png") ? s.strip! : "#{s.strip!}.svg"
 	      c += "<img height='#{a}px' src='pictures/#{t}'>"
-            end
-            c += "</p></div>"
-            content = c
+        end
+        c += "</p></div>"
+        content = c
     else 
 	    content = "<div style='width: 50%; margin: 0 auto;'><p align='center'><img height='400px' src='pictures/#{content}.svg'></p></div>"
     end
